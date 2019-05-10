@@ -1,6 +1,6 @@
 "use strict";
 var http = require("http");
-
+var timeStamp = "";
 function getJSON (opt, cb) {
   http.request(options, function(res) {
     var body = "";
@@ -27,10 +27,19 @@ var options = {
   method: "GET"
 };
 
-getJSON(options, function(err, result) {
-  if (err) {
-    return console.log("Error while trying to get", err);
-  }
-
-  console.log(result.data[0].attributes.changed);
-});
+function checkTimestamp(){
+  getJSON(options, function(err, result) {
+    if (err) {
+      console.log("Error while trying to get", err);
+      setTimeout(checkTimestamp(); }, 3000);
+    }
+    if (timeStamp != result.data[0].attributes.changed){
+      timeStamp = result.data[0].attributes.changed;
+      console.log(timeStamp);
+      setTimeout(checkTimestamp(); }, 3000);
+    } else {
+      console.log(timeStamp);
+      setTimeout(checkTimestamp(); }, 3000);
+    }
+  });
+}
