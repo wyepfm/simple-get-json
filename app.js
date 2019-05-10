@@ -21,9 +21,9 @@ function getJSON (opt, cb) {
 }
 
 var options = {
-  host: "URL_HTTP",
+  host: "10.67.1.172",
   port: 80,
-  path: "/v1/url/params",
+  path: "/jsonapi/node/article?sort=-revision_timestamp",
   method: "GET"
 };
 
