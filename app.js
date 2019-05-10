@@ -43,3 +43,4 @@ function checkTimestamp(){
     }
   });
 }
+checkTimestamp();
