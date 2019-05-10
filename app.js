@@ -31,15 +31,15 @@ function checkTimestamp(){
   getJSON(options, function(err, result) {
     if (err) {
       console.log("Error while trying to get", err);
-      setTimeout(checkTimestamp(); }, 3000);
+      setTimeout(checkTimestamp(), 3000);
     }
     if (timeStamp != result.data[0].attributes.changed){
       timeStamp = result.data[0].attributes.changed;
       console.log(timeStamp);
-      setTimeout(checkTimestamp(); }, 3000);
+      setTimeout(checkTimestamp(), 3000);
     } else {
       console.log(timeStamp);
-      setTimeout(checkTimestamp(); }, 3000);
+      setTimeout(checkTimestamp(), 3000);
     }
   });
 }
