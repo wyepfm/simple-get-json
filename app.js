@@ -32,5 +32,5 @@ getJSON(options, function(err, result) {
     return console.log("Error while trying to get", err);
   }
 
-  console.log(result);
+  console.log(result.data[0].attributes.changed);
 });
