@@ -1,4 +1,5 @@
 "use strict";
+const shell = require('shelljs');
 var http = require("http");
 var timeStamp = "";
 function getJSON (opt, cb) {
@@ -34,8 +35,10 @@ function checkTimestamp(){
       setTimeout(function(){ checkTimestamp(); }, 3000);   
     }
     if (timeStamp != result.data[0].attributes.changed){
+      //timeStamp changed
       timeStamp = result.data[0].attributes.changed;
       console.log(timeStamp);
+      shell.exec('../wyep/deploy.bat')
       setTimeout(function(){ checkTimestamp(); }, 3000);
     } else {
       console.log(timeStamp);
